@@ -22,7 +22,7 @@
   * Delete a specific student by id.
 * Create Controller class for student exposing endpoints for the CRUD operations.
     
-### Optional Assignments:
+### Advanced Assignments:
 * Student Repository:
   * Add method to retrieve student by last/first name.
     Hint: You don't need to add implementaion, only a method.
