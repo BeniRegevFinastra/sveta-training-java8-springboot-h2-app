@@ -25,7 +25,7 @@
 ### Advanced Assignments:
 * Student Repository:
   * Add method to retrieve student by last/first name.
-    Hint: You don't need to add implementaion, only a method.
+    Hint: You don't need to add implementation, only a method.
   * Add method to retrieve student by main-subject, secondary-subject AND year.
     Note: use ___different___ criteria operators for each column.
     For example: mainSubject = "subject" and secondSubject contains "is" and year < 3
