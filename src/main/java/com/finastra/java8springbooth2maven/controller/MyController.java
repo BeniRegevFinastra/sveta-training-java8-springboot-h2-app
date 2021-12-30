@@ -16,6 +16,8 @@ public class MyController {
     public String pingMyApp() {
         return "You reached the server";
     }
+
+
     @GetMapping("/sayhello")
     public String sayHello() {
         return myService.sayHello();
