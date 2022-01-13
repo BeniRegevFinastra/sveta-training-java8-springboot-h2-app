@@ -14,6 +14,10 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    @GetMapping(path = "students/ping")
+    public String pingServer(){
+        return "HI, i am here";
+    }
 
     @PostMapping(path = "/students")
     public Student createStudent(@RequestBody String requestBody){
@@ -24,6 +28,7 @@ public class StudentController {
     public List<Student> getAll(){
         return studentService.getAll();
     }
+
 
     @GetMapping(path="students/{id}")
     public Student getStudentById(@PathVariable String id){

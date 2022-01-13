@@ -16,8 +16,8 @@ import javax.persistence.*;
 public class Course {
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private int courseId;
+     private Integer courseId;
      private String name;
-     private String semester;
-     private String units;
+     private int semester;
+     private int units;
 }

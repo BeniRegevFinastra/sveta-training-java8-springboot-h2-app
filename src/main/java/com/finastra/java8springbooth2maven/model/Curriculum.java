@@ -19,11 +19,11 @@ public class Curriculum {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int curriculumId;
+    private Integer curriculumId;
 
-    private int courseId;
-    private int studentId;
-    private int teacherId;
+    private Integer courseId;
+    private Integer studentId;
+    private Integer teacherId;
     private Semester semester;
     private Date startOn;
     private LocalDate endsOn;
