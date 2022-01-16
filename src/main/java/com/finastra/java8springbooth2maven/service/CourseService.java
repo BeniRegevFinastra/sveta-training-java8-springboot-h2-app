@@ -17,9 +17,9 @@ public class CourseService {
 
     public List<Course> createDefaultCourses(){
         List<Course> courseList = new ArrayList<>();
-        courseList.add(new Course(1,"Math",1,3));
-        courseList.add(new Course(2, "Biology",2,5));
-        courseList.add(new Course(3, "Algebra",3,5));
+//        courseList.add(new Course(1,"Math",1,3,null));
+//        courseList.add(new Course(2, "Biology",2,5,null));
+//        courseList.add(new Course(3, "Algebra",3,5,null));
         return courseRepository.saveAll(courseList);
     }
 }

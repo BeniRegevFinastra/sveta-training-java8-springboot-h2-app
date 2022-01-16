@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -30,5 +31,8 @@ public class Student {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
+
+//    @ManyToMany(mappedBy = "studentList")
+//    private Set<Curriculum> curriculums;
 
 }

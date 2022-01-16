@@ -3,17 +3,22 @@ package com.finastra.java8springbooth2maven.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.finastra.java8springbooth2maven.model.Address;
+import com.finastra.java8springbooth2maven.model.Curriculum;
 import com.finastra.java8springbooth2maven.model.Gender;
 import com.finastra.java8springbooth2maven.model.Student;
 import com.finastra.java8springbooth2maven.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Service
+@Transactional
 public class StudentService {
 
     @Autowired

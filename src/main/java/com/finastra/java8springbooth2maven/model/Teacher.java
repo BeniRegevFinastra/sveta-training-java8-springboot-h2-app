@@ -14,6 +14,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 
 @Data
@@ -30,7 +31,8 @@ import javax.validation.constraints.Size;
 //   dash (0 or more times)
 public class Teacher {
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer teacherId;
 
     @Enumerated(EnumType.STRING)
     private NamePrefix prefix;
@@ -60,6 +62,9 @@ public class Teacher {
     @Column(name="phone_number",unique = true,length = 25)
     @Pattern(regexp = "^\\+[0-9]{1,3}\\.[0-9]{4,14}(?:x.+)?$",message = "It not valid international number")
     private String phoneNumber;
+
+//    @OneToMany(mappedBy = "teacher",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+//    private Set<Curriculum> curriculums;
 
     //  TODO - Sveta: the method will return the object as a valid json string.
     public String toJson() {

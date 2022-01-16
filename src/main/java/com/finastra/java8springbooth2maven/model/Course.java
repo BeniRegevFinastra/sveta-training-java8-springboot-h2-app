@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -20,4 +21,8 @@ public class Course {
      private String name;
      private int semester;
      private int units;
+
+    // @OneToMany(mappedBy = "course")
+//     private Set<Curriculum> curriculums;
+//
 }

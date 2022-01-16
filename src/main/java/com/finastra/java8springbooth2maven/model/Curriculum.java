@@ -1,13 +1,23 @@
 package com.finastra.java8springbooth2maven.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -17,16 +27,36 @@ import java.util.Date;
 @Table(name = "curriculum")
 public class Curriculum {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer curriculumId;
 
-    private Integer courseId;
-    private Integer studentId;
-    private Integer teacherId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "courseId", nullable = false)
+    private Course course;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "curriculum_student_join",
+            joinColumns = @JoinColumn(name = "curriculumId"), inverseJoinColumns = @JoinColumn(name= "studentId"))
+    private Set<Student> studentList;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "teacherId", nullable = false)
+    private Teacher teacher;
+
+    @Enumerated
+    @Column(nullable = false)
     private Semester semester;
+
+    @Temporal(TemporalType.DATE)
     private Date startOn;
-    private LocalDate endsOn;
+
+//    @Column(name = "end_date")
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+//    private LocalDate endsOn;
+
+    @Min(value = 0, message = "The value should be positive")
     private int grade;
 
 }
