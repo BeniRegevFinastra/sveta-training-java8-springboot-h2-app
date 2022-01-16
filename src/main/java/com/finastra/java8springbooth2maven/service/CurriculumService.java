@@ -40,4 +40,12 @@ public class CurriculumService {
     public Curriculum getCurriculumById(String id){
        return  curriculumRepository.findById(Integer.valueOf(id)).orElse(null);
     }
+
+    public Curriculum deleteCurriculum(String id){
+        Curriculum curriculumToDelete = this.getCurriculumById(id);
+        if(curriculumToDelete!=null){
+            curriculumRepository.deleteById(Integer.valueOf(id));
+        }
+        return curriculumToDelete;
+    }
 }

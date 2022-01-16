@@ -28,4 +28,9 @@ public class CurriculumController {
     public Curriculum getByCurriculumId(@PathVariable String id){
         return curriculumService.getCurriculumById(id);
     }
+
+    @DeleteMapping("/{id}")
+    public Curriculum deleteCurriculumById(@PathVariable String id){
+        return curriculumService.deleteCurriculum(id);
+    }
 }
