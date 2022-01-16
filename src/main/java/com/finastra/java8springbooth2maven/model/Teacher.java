@@ -1,5 +1,7 @@
 package com.finastra.java8springbooth2maven.model;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.finastra.java8springbooth2maven.util.NameValidation;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -61,6 +63,12 @@ public class Teacher {
 
     //  TODO - Sveta: the method will return the object as a valid json string.
     public String toJson() {
-        return null;
+        String json = "";
+        try {
+            json =  new ObjectMapper().writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return json;
     }
 }
