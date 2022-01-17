@@ -1,21 +1,12 @@
 package com.finastra.java8springbooth2maven.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Set;
 
@@ -38,7 +29,7 @@ public class Curriculum {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "curriculum_student_join",
-            joinColumns = @JoinColumn(name = "curriculumId"), inverseJoinColumns = @JoinColumn(name= "studentId"))
+            joinColumns = @JoinColumn(name = "curriculumId"), inverseJoinColumns = @JoinColumn(name = "studentId"))
     private Set<Student> studentList;
 
     @ManyToOne(cascade = CascadeType.ALL)

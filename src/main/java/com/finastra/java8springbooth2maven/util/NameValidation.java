@@ -13,6 +13,8 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = NameValidator.class)
 public @interface NameValidation {
     String message() default "{name.invalid}";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }

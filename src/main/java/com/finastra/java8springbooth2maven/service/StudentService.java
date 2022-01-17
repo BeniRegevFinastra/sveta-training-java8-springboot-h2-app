@@ -3,7 +3,6 @@ package com.finastra.java8springbooth2maven.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.finastra.java8springbooth2maven.model.Address;
-import com.finastra.java8springbooth2maven.model.Curriculum;
 import com.finastra.java8springbooth2maven.model.Gender;
 import com.finastra.java8springbooth2maven.model.Student;
 import com.finastra.java8springbooth2maven.repository.StudentRepository;
@@ -12,9 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 @Service
@@ -78,18 +75,18 @@ public class StudentService {
 
     public Student deleteStudent(String id) {
         Student studentToDelete = this.getStudentById(id);
-        if(studentToDelete!=null){
+        if (studentToDelete != null) {
             studentRepository.delete(studentToDelete);
         }
-       return studentToDelete;
+        return studentToDelete;
     }
 
     public List<Student> getStudentByLastName(String lastName) {
         return studentRepository.findStudentByLastName(lastName);
     }
 
-    public List<Student> getStudentsByFirstOrLastName(String firstName, String lastName){
-        return  studentRepository.findStudentByFirstNameOrLastName(firstName,lastName);
+    public List<Student> getStudentsByFirstOrLastName(String firstName, String lastName) {
+        return studentRepository.findStudentByFirstNameOrLastName(firstName, lastName);
     }
 
     public List<Student> getStudentsByMainSubjectAndSecondarySubjectAndYear(String mainSubject, List<String> secondarySubjectList, int year) {

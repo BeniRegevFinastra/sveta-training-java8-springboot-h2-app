@@ -17,25 +17,26 @@ import java.util.Map;
 public class GlobalExceptionHandler {
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public final ResponseEntity<Object> handleException(
-            Exception ex, WebRequest request){
+            Exception ex, WebRequest request) {
         HttpHeaders headers = new HttpHeaders();
-        if(ex instanceof MethodArgumentNotValidException){
+        if (ex instanceof MethodArgumentNotValidException) {
             return handleMethodArgumentNotValid(
                     (MethodArgumentNotValidException) ex, headers,
                     HttpStatus.BAD_REQUEST, request);
         }
         return null;
     }
+
     private ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex,
             HttpHeaders headers, HttpStatus status,
-            WebRequest request){
+            WebRequest request) {
         Map<String, Object> fieldError = new HashMap<>();
         List<FieldError> fieldErrors = ex.getBindingResult()
                 .getFieldErrors();
         fieldErrors.stream().forEach(error -> fieldError.put(
                 error.getField(), error.getDefaultMessage()));
-        Map<String, Object> response= new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         response.put("isSuccess", false);
         response.put("data", null);
         response.put("status", status);

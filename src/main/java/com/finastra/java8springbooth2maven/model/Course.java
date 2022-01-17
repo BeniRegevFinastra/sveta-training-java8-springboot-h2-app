@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Pattern;
 
 @Data
 @NoArgsConstructor
@@ -16,16 +15,16 @@ import javax.validation.constraints.Pattern;
 @Entity
 @Table(name = "course")
 public class Course {
-     @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private Integer courseId;
-     @NameValidation
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer courseId;
+    @NameValidation
 //     @Pattern(regexp = "0-9, !@#$%&()+={[]}|;:<>/?",message = "Not valid course name")
-     private String name;
-     private int semester;
-     @Transient
-     private int units;
-     private String preliminaryCourse;
+    private String name;
+    private int semester;
+    @Transient
+    private int units;
+    private String preliminaryCourse;
 
     // @OneToMany(mappedBy = "course")
 //     private Set<Curriculum> curriculums;

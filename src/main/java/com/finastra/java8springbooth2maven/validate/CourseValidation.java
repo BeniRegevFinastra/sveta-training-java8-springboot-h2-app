@@ -17,7 +17,7 @@ public class CourseValidation implements Validator {
     public void validate(Object target, Errors errors) {
         Course course = (Course) target;
 
-        if(errors.getErrorCount() == 0) {
+        if (errors.getErrorCount() == 0) {
             ValidationUtils.rejectIfEmptyOrWhitespace(
                     errors, "name",
                     "error.name",
