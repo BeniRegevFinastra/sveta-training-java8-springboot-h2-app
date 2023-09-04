@@ -1,5 +1,6 @@
 package com.finastra.java8springbooth2maven.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -43,9 +44,9 @@ public class Curriculum {
     @Temporal(TemporalType.DATE)
     private Date startOn;
 
-//    @Column(name = "end_date")
-//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-//    private LocalDate endsOn;
+    @Column(name = "end_date")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private String endsOn;
 
     @Min(value = 0, message = "The value should be positive")
     private int grade;

@@ -1,4 +1,4 @@
-package com.finastra.java8springbooth2maven.exception;
+package com.finastra.java8springbooth2maven.model.exception;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
